@@ -2,7 +2,7 @@
 <html lang="en"></html>
 <html>
     <head>
-        <title>Global Light Trends</title>
+        <title>Global Nighttime Lights Trend</title>
         <meta charset="utf-8">
         <style type="text/css">
             html {
@@ -34,16 +34,16 @@
                 left: 20px;
                 background-color: rgba(0, 0, 0, 0.2);
                 font: 22px/22px Georgia;
-                padding: 20px;
+                padding: 10px;
             }
             #subtitle {
                 position: absolute;
-                top: 50px;
+                top: 60px;
                 width: 400px;
                 left: 20px;
                 background-color: rgba(0, 0, 0, 0.2);
                 font: 13px/13px Helvetica;
-                padding: 15px;
+                padding: 5px;
             }
             #lines {
                 position: absolute;
@@ -61,11 +61,11 @@
         <div id="container"></div>
 
         <div id="title">
-            Global Night-time Light Trends
+            Global Nighttime Lights Trend
         </div>
 
         <div id="subtitle" style="line-height:1.5;">
-            <p>Time series night-time light is a reflection of regional economic prosperity/recession and poverty. In this project, we compute a linear fit over the time series of values at each pixel, visualizing the y-intercept in green and positive/negative slopes as red/blue. This graph allows us to see the trends in night-time light worldwide near 30 years, from 1991 to 2014. The green areas were very bright in 1991, while the blue and red areas show the decline and rise of night-time light.</p>
+            <p>Time series nighttime light is a reflection of regional economic prosperity/recession and poverty. In this project, we compute a linear fit over the time series of values at each pixel, visualizing the y-intercept in green and positive/negative slopes as red/blue. This graph allows us to see the trends in nighttime lights worldwide nearly 30 years, from 1991 to 2014. The green areas were relative bright in 1991, while the blue and red areas show the decline and rise of nighttime lights.</p>
             <p>Source:
                 <a href="https://developers.google.com/earth-engine/datasets/catalog/NOAA_DMSP-OLS_NIGHTTIME_LIGHTS#description">DMSP OLS Dataset</a>
                 <!-- <a href="https://www.prio.org/Data/Armed-Conflict/Conflict-Site/">UCDP/PRIO Armed Conflict Dataset</a> -->
@@ -140,8 +140,8 @@
             // create scene, camera, and controls -----------------------------------------------------------
             var scene = new THREE.Scene();
 
-            var camera = new THREE.PerspectiveCamera(45, window.innerWidth/ window.innerHeight, 0.01, 1000);
-            camera.position.set(0, 1, 1.5);
+            var camera = new THREE.PerspectiveCamera(50, window.innerWidth/ window.innerHeight, 0.1, 1000); // fov angle; h/w; near ;far
+            camera.position.set(0, 0.6, 1.5); //Y is height
 
             var renderer = new THREE.WebGLRenderer();
             renderer.setSize( window.innerWidth, window.innerHeight );
@@ -174,7 +174,7 @@
             });
 
             var halo = new THREE.Mesh(
-                new THREE.SphereGeometry(0.79, 50, 50), //radius , widthSegments , heightSegments
+                new THREE.SphereGeometry(0.83, 50, 50), //radius , widthSegments , heightSegments
                 material
             )
             scene.add(halo);
@@ -182,7 +182,7 @@
             // create earth ------------------------------------------------------------------------------
             var shader_earth = Shaders['earth'];
             var uniforms = THREE.UniformsUtils.clone(shader_earth.uniforms);
-            uniforms['texture'].value = new THREE.TextureLoader().load('./image/world.jpg');
+            uniforms['texture'].value = new THREE.TextureLoader().load('./image/world_masked.jpg');
 
             var material = new THREE.ShaderMaterial({
                 uniforms: uniforms,
