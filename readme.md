@@ -1,6 +1,6 @@
 # Nighttime Lights Trend Globe-Visualization
 
-Nighttime lights data can be used as a reflection of regional economic prosperity/recession and poverty. In this project, we compute a linear fit over the time series of values at each pixel, visualizing the y-intercept in green and positive/negative slopes as red/blue. This graph allows us to see the trends in night-time light worldwide for nearly 30 years, from 1991 to 2014. The green areas were relative developed in 1991, while the blue and red areas show the decline and rise of night-time lighting.
+Nighttime lights data can be used as a reflection of regional economic prosperity/recession and poverty. In this project, we compute a linear fit over the time series of values at each pixel, visualizing the y-intercept in green and positive/negative slopes as red/blue. This graph allows us to see the trends in night-time light worldwide for nearly 30 years, from 1991 to 2014. The green areas were relatively developed in 1991, while the blue and red areas show the decline and rise of night-time lighting.
 
 Live version at: https://adamzhou3.github.io/NighttimeLightTrend/
 
@@ -77,4 +77,7 @@ Export.image.toDrive({
 
 [Google Earth Engine API](https://github.com/jcline12/google-earthengine-api)
 
+[RIchard Vijgen's Blog](https://www.richardvijgen.nl/#world)
+
 Armed conflicts https://www.prio.org/Data/Armed-Conflict/
+
